@@ -2,7 +2,7 @@ import PIL
 import numpy as np
 import config as cg
 
-def load_data(path='', shape=None, mode='eval'):
+def load_data(path='', shape=(224, 224, 3), mode='eval'):
 
     short_size = 224.0
     crop_size = shape
