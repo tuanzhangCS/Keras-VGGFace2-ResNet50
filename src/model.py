@@ -11,9 +11,9 @@ def Vggface2_ResNet50(input_dim=(224, 224, 3), nb_classes=8631, optimizer='sgd',
     inputs = keras.layers.Input(shape=input_dim, name='base_input')
     x = resnet.resnet50_backend(inputs)
 
-    # AvgPooling
-    x = keras.layers.AveragePooling2D((7, 7), name='avg_pool')(x)
     if include_top:
+        # AvgPooling
+        x = keras.layers.AveragePooling2D((7, 7), name='avg_pool')(x)
         x = keras.layers.Flatten()(x)
         x = keras.layers.Dense(512, activation='relu', name='dim_proj')(x)
 
